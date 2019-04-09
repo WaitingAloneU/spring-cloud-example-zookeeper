@@ -1,0 +1,38 @@
+server:
+  port: 9006
+
+
+zuul:
+  ignored-services: '*'
+  routes:
+    users:
+      path: /users/**
+      service-id: user-service
+    orders:
+      path: /orders/**
+      service-id: order-service
+  retryable: true
+  host:
+    max-total-connections: 200
+    max-per-route-connections: 20
+ribbon:
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 1
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://192.168.199.184:27017/test
+  redis:
+    host: 192.168.199.165
+    port: 6379
+    database: 3
+    ssl: false
+    jedis:
+      pool:
+        max-active: 100
+        max-idle: 10
+        min-idle: 0
+
+logging:
+  config: classpath:config/logback.xml

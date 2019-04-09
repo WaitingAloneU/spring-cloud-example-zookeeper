@@ -1,0 +1,14 @@
+server:
+  port: 9006
+
+zuul:
+  ignored-services: '*'
+  routes:
+    users:
+      path: /users/**
+      service-id: USER-SERVICE
+    orders:
+      path: /orders/**
+      service-id: order-service
+  strip-prefix: true
+  retryable: true

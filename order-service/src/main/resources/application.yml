@@ -1,0 +1,9 @@
+server:
+  port: 9004
+  servlet:
+    context-path: /
+
+id: 123456
+userId: 2345678
+remark: sikhfiweunfwefwef
+

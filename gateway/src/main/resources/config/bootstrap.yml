@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    zookeeper:
+      connect-string: 192.168.56.102:2181,192.168.56.103:2181,192.168.56.104:2181
+      discovery:
+        enabled: true
+        register: true
+        instance-host: 192.168.56.1
+        instance-port: ${server.port}
+        root: services
+      max-retries: 10
+      max-sleep-ms: 50
+      block-until-connected-wait: 500
+      block-until-connected-unit: milliseconds
+      enabled: true
+      config:
+        root: /configuration
+        enabled: true
+        watcher:
+          enabled: true
+    config:
+      enabled: false
